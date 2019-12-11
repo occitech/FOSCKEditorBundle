@@ -113,7 +113,7 @@ EOF
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->title($output);
 
@@ -121,8 +121,10 @@ EOF
 
         if ($success) {
             $this->success('CKEditor has been successfully installed...', $output);
+            return 0;
         } else {
             $this->info('CKEditor installation has been skipped...', $output);
+            return 1;
         }
     }
 
